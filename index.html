@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#eaf6ff"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="แพนด้าน้อย"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐼</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แพนด้าน้อยเรียนภาษาจีน</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#eaf6ff;--card:#fff;--text:#23304a;--sub:#6b7a99;--line:#cfe0f5;--pri:#4c7dff;--priD:#3459d6;--ok:#2fbf71;--okD:#1f9658;--okbg:#d9f7e6;--no:#ff8a3d;--noD:#d96a1f;--nobg:#ffe9d6;--sun:#ffc93c;--tint:#e3ecff;--ghost:#dbe6f6;--sh:0 3px 0 var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121a2b;--card:#1d2740;--text:#eef3ff;--sub:#9aa9c8;--line:#2d3b5e;--tint:#27345a;--okbg:#17402b;--nobg:#4a2c17;--ghost:#33405f}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{height:100vh;height:100dvh;touch-action:manipulation}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:var(--bg);color:var(--text);font:18px/1.45 "Mali","Noto Sans Thai",system-ui,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+button:focus-visible{outline:4px solid var(--sun);outline-offset:2px}
+#app{height:100%}
+.screen{height:100%;display:flex;flex-direction:column;max-width:760px;margin:0 auto;padding:0 16px 16px}
+.scroll{flex:1;overflow:auto;min-height:0;padding:6px 2px 14px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;height:60px}
+.pill{background:var(--card);border-radius:30px;padding:6px 16px;font-weight:700;box-shadow:var(--sh)}
+.fire{color:#ff6a1a}.fire b{display:inline-block;animation:flick 1.2s infinite}
+@keyframes flick{50%{transform:scale(1.18) rotate(-6deg)}}
+.mas{display:flex;align-items:center;gap:12px;margin:4px 0 12px}
+.panda{font-size:72px;line-height:1;animation:bob 2.4s ease-in-out infinite}
+.mas.sm .panda{font-size:48px}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.bub{background:var(--card);border-radius:20px;padding:12px 16px;font-weight:600;box-shadow:var(--sh);position:relative}
+.bub:before{content:"";position:absolute;left:-8px;top:50%;margin-top:-8px;border:8px solid transparent;border-left:0;border-right-color:var(--card)}
+@media (prefers-reduced-motion:reduce){.panda,.fire b,.mic.rec{animation:none}}
+.lcard{display:flex;align-items:center;gap:14px;width:100%;min-height:92px;padding:14px 18px;margin-bottom:14px;border-radius:24px;background:var(--col);color:#fff;border-bottom:6px solid rgba(0,0,0,.22);text-align:left}
+.lcard:active,.btn:active{transform:translateY(3px);border-bottom-width:3px}
+.le{font-size:46px}.lt{flex:1;font-size:21px;font-weight:700}.ls{font-size:22px;letter-spacing:2px}
+.h2{font-weight:700;margin:18px 0 8px}
+.stk{display:flex;flex-wrap:wrap;gap:8px;font-size:38px}
+.sub{color:var(--sub);font-size:16px}
+.btn{min-height:62px;width:100%;border-radius:22px;background:var(--pri);color:#fff;font-size:21px;font-weight:700;border-bottom:6px solid var(--priD)}
+.btn.ok{background:var(--ok);border-color:var(--okD)}.btn.no{background:var(--no);border-color:var(--noD)}
+.btn.alt{background:var(--card);color:var(--text);border-color:var(--line)}
+.btn:disabled{background:var(--line);border-color:var(--line);color:var(--sub);cursor:default;transform:none}
+.top{display:flex;align-items:center;gap:14px;height:60px}
+.x{width:44px;height:44px;font-size:24px;border-radius:50%;background:var(--card);box-shadow:var(--sh)}
+.track{flex:1;height:18px;border-radius:9px;background:var(--line);overflow:hidden}
+.fill{height:100%;background:var(--sun);border-radius:9px;transition:width .4s}
+.body{flex:1;display:flex;flex-direction:column;min-height:0;gap:12px}
+.q{font-size:22px;font-weight:700;margin:0}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+.big-e{font-size:96px;line-height:1.1}
+.zh{font-family:"Kaiti SC","KaiTi","STKaiti","Noto Sans SC",sans-serif;font-size:76px;font-weight:700;line-height:1.1}
+.zh.sm{font-size:56px}.py{font-size:26px;color:var(--pri);font-weight:600}.th{font-size:22px}
+.snds{display:flex;gap:14px;justify-content:center;margin-top:10px}
+.snd{width:88px;height:88px;border-radius:26px;background:var(--card);box-shadow:var(--sh);font-size:34px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.snd small{font-size:14px;color:var(--sub)}.snd.sm{width:64px;height:64px;font-size:26px}
+.pcs{display:flex;flex-wrap:wrap;gap:2px 10px;justify-content:center;font-family:"Kaiti SC","KaiTi","Noto Sans SC",sans-serif}
+.pc i{display:block;font-style:normal;font-size:.45em;color:var(--pri);font-family:"Mali",sans-serif;line-height:1.2;text-align:center}.pc b{display:block;text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.opt{background:var(--card);border-radius:22px;box-shadow:var(--sh);border:3px solid transparent;min-height:112px;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;margin-bottom:0}
+.opt:disabled{opacity:.4}
+.list .opt{margin-bottom:12px}.opt .e{font-size:54px;line-height:1.1}.opt .zh{font-size:44px}.opt .py{font-size:18px}
+.chip{background:var(--card);box-shadow:var(--sh);border-radius:18px;padding:12px 20px;margin:6px;font:700 30px "Kaiti SC","KaiTi","Noto Sans SC",sans-serif;min-height:60px}
+.slot{min-height:84px;border-radius:20px;border:3px dashed var(--line);display:flex;flex-wrap:wrap;align-items:center;padding:4px}
+.pad{position:relative;width:min(320px,86vw,44vh);aspect-ratio:1;margin:0 auto;background:var(--card);border:3px solid #ff7a7a;border-radius:10px;touch-action:none}
+.pad .g{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:min(260px,66vw,36vh)/1 "Kaiti SC","KaiTi","Noto Sans SC",sans-serif;color:var(--ghost);pointer-events:none}
+.pad.done .g{color:var(--text)}
+.pad .gd{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent calc(50% - 1px),#ffb3b3 calc(50% - 1px),#ffb3b3 calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(transparent calc(50% - 1px),#ffb3b3 calc(50% - 1px),#ffb3b3 calc(50% + 1px),transparent calc(50% + 1px))}
+.pad canvas{position:absolute;inset:0;width:100%;height:100%}
+.pat{background:var(--tint);border-radius:18px;padding:14px;font-weight:700;text-align:center;font-size:22px;margin:10px 0}
+.exp{font-size:20px;line-height:1.7;margin:8px 0}
+.ex{background:var(--card);border-radius:18px;padding:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:var(--sh)}
+.mic{width:104px;height:104px;border-radius:50%;background:var(--no);border-bottom:6px solid var(--noD);font-size:48px;color:#fff}
+.mic.rec{background:#e5484d;animation:pulse 1s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 16px rgba(229,72,77,.22)}}
+.sheet{position:fixed;left:0;right:0;bottom:0;padding:18px 18px calc(22px + env(safe-area-inset-bottom,0px));border-radius:28px 28px 0 0;animation:up .25s ease-out;z-index:5}
+.sheet.ok{background:var(--okbg)}.sheet.no{background:var(--nobg)}
+.sheet>div{max-width:720px;margin:0 auto}.shin{display:flex;gap:12px;align-items:center;margin-bottom:12px;font-size:21px}.shin .sp{font-size:46px}
+@keyframes up{from{transform:translateY(100%)}}
+.toast{position:fixed;left:50%;top:calc(70px + env(safe-area-inset-top,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 18px;border-radius:24px;z-index:9;max-width:90vw;text-align:center;font-weight:600}
+.stars{font-size:64px;letter-spacing:6px}.stars span{display:inline-block;animation:pop .5s backwards}
+@keyframes pop{from{transform:scale(0) rotate(-40deg)}}
+.in{width:100%;font:16px/1.4 "Mali","Noto Sans Thai",system-ui,sans-serif;border:3px solid var(--line);border-radius:14px;padding:8px 10px;background:var(--card);color:var(--text);user-select:text;-webkit-user-select:text;resize:vertical}
+.stars span:nth-child(2){animation-delay:.2s}.stars span:nth-child(3){animation-delay:.4s}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+(function(){
+var $=document.getElementById('app');
+function pk(s){return s.split('|').map(function(x){return x.split(':')})}
+function sen(s,th){return {w:pk(s),th:th}}
+var LS=[
+{id:'hi',t:'ทักทายและแนะนำตัว',e:'👋',col:'#4c7dff',
+ w:[['你好','nǐ hǎo','สวัสดี','👋'],['我','wǒ','ฉัน','🙋'],['你','nǐ','เธอ / คุณ','🫵'],['朋友','péng you','เพื่อน','🧑‍🤝‍🧑']],
+ s:[sen('你好:nǐ hǎo|，:|我:wǒ|是:shì|可可:kě kě|。:','สวัสดี ฉันคือเคอเคอ'),sen('我:wǒ|是:shì|小明:xiǎo míng|。:','ฉันคือเสี่ยวหมิง'),sen('你好:nǐ hǎo|，:|朋友:péng you|！:','สวัสดีเพื่อน')],
+ g:{z:'是',p:'shì',th:'ใช้บอกว่า “ใครคือใคร” เหมือนคำว่า “คือ” หรือ “เป็น” ในภาษาไทย',pat:'ใคร + 是 + ชื่อ',ex:[sen('我:wǒ|是:shì|可可:kě kě|。:','ฉันคือเคอเคอ'),sen('他:tā|是:shì|小明:xiǎo míng|。:','เขาคือเสี่ยวหมิง')]},
+ ch:[['我','wǒ','ฉัน',7],['你','nǐ','เธอ / คุณ',7]]},
+{id:'bye',t:'การบอกลา',e:'👋',col:'#ff7a45',
+ w:[['再见','zài jiàn','ลาก่อน','🚶'],['老师','lǎo shī','คุณครู','👩‍🏫'],['同学','tóng xué','เพื่อนร่วมชั้น','🧒'],['明天','míng tiān','พรุ่งนี้','🌅']],
+ s:[sen('再见:zài jiàn|。:','ลาก่อน'),sen('老师:lǎo shī|，:|再见:zài jiàn|！:','คุณครู ลาก่อนค่ะ'),sen('明天:míng tiān|见:jiàn|。:','เจอกันพรุ่งนี้')],
+ g:{z:'见',p:'jiàn',th:'แปลว่า “เจอ” ใช้พูดว่า “เจอกัน…” ตามด้วยเวลา',pat:'เวลา + 见',ex:[sen('明天:míng tiān|见:jiàn|。:','เจอกันพรุ่งนี้'),sen('老师:lǎo shī|，:|明天:míng tiān|见:jiàn|！:','คุณครู เจอกันพรุ่งนี้ค่ะ')]},
+ ch:[['见','jiàn','เจอ',4],['天','tiān','ท้องฟ้า / วัน',4]]},
+{id:'pic',t:'จับคู่คำจีน: ของใกล้ตัว',e:'🍎',col:'#2fbf71',
+ w:[['熊猫','xióng māo','แพนด้า','🐼'],['苹果','píng guǒ','แอปเปิล','🍎'],['书','shū','หนังสือ','📕'],['猫','māo','แมว','🐱'],['香蕉','xiāng jiāo','กล้วย','🍌']],
+ s:[],ch:[['书','shū','หนังสือ',4],['猫','māo','แมว',11]]},
+{id:'t1',t:'วัน สัปดาห์ และซูเปอร์มาร์เก็ต',e:'🛒',col:'#ff7a45',s:[],ch:[],
+ w:[['昨天','zuó tiān','เมื่อวาน','⏪'],['星期','xīng qī','สัปดาห์','🗓️'],['星期几','xīng qī jǐ','วันอะไร','❓'],['今天','jīn tiān','วันนี้','☀️'],['明天','míng tiān','พรุ่งนี้','🌅'],['做','zuò','ทำ','🛠️'],['超市','chāo shì','ซูเปอร์มาร์เก็ต','🛒']]},
+{id:'t2',t:'เดือน วันที่ และวันสำคัญ',e:'📆',col:'#a45cf0',s:[],ch:[],
+ w:[['月','yuè','เดือน','🌙'],['几月','jǐ yuè','เดือนไหน','📆'],['号','hào','วันที่','🔢'],['几号','jǐ hào','วันที่เท่าไร','🤔'],['圣诞节','Shèng dàn Jié','วันคริสต์มาส','🎄'],['元旦','Yuán dàn','วันปีใหม่','🎆']]},
+{id:'t3',t:'คนประเทศต่าง ๆ',e:'🌏',col:'#e8528f',s:[],ch:[],
+ w:[['哪','nǎ','ไหน','📍'],['国','guó','ประเทศ','🌏'],['人','rén','คน','🧑'],['哪国人','nǎ guó rén','คนประเทศไหน','🙋'],['中国人','Zhōng guó rén','คนจีน','🐉'],['泰国人','Tài guó rén','คนไทย','🐘'],['英国人','Yīng guó rén','คนอังกฤษ','💂'],['日本人','Rì běn rén','คนญี่ปุ่น','🗻']]},
+{id:'t4',t:'วิชาเรียนและภาษา',e:'📚',col:'#2fbf71',s:[],ch:[],
+ w:[['读','dú','เรียน อ่าน','📖'],['三年级','sān nián jí','ประถมศึกษาปีที่ 3','🎒'],['学习','xué xí','เรียน','✏️'],['泰语','Tài yǔ','ภาษาไทย','🐘'],['汉语','Hàn yǔ','ภาษาจีน','🐉'],['英语','Yīng yǔ','ภาษาอังกฤษ','💂'],['数学','shù xué','คณิตศาสตร์','➗'],['最','zuì','ที่สุด','🏆']]},
+{id:'t5',t:'วันในสัปดาห์ (星期)',e:'🗓️',col:'#4c7dff',s:[],ch:[],
+ w:[['星期一','xīng qī yī','วันจันทร์','1️⃣'],['星期二','xīng qī èr','วันอังคาร','2️⃣'],['星期三','xīng qī sān','วันพุธ','3️⃣'],['星期四','xīng qī sì','วันพฤหัสบดี','4️⃣'],['星期五','xīng qī wǔ','วันศุกร์','5️⃣'],['星期六','xīng qī liù','วันเสาร์','6️⃣'],['星期天','xīng qī tiān','วันอาทิตย์','☀️']]}
+];
+var PRAISE=['เก่งมาก!','สุดยอดเลย!','ยอดเยี่ยม!','เยี่ยมไปเลย!'],TRY=['เกือบแล้ว! ลองอีกครั้งนะ','ไม่เป็นไร ลองใหม่อีกที','สู้ ๆ นะ ทำได้แน่!'];
+var STK=['🦄','🚀','🌈','🦖','🍭','🐳','🎈','🍉'];
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function txt(s){return s.w.map(function(x){return x[0]}).join('')}
+
+/* storage: streak, stars, stickers */
+var D={streak:0,last:'',st:[],done:{},cu:[]};
+try{var j=JSON.parse(localStorage.getItem('hz_kid'));if(j)D=Object.assign(D,j)}catch(e){}
+function save(){try{localStorage.setItem('hz_kid',JSON.stringify(D))}catch(e){}}
+function today(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function dn(s){var p=s.split('-');return Math.round(Date.UTC(+p[0],p[1]-1,+p[2])/864e5)}
+function streak(){return D.last&&dn(today())-dn(D.last)<=1?D.streak:0}
+function touchDay(){var t=today();if(D.last===t)return;D.streak=(D.last&&dn(t)-dn(D.last)===1)?D.streak+1:1;D.last=t}
+
+/* sound */
+var voice=null,warned=false;
+function pv(){if(!window.speechSynthesis)return;voice=speechSynthesis.getVoices().filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+pv();if(window.speechSynthesis)speechSynthesis.onvoiceschanged=pv;
+function note(m){var t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},3200)}
+function say(t,slow){
+  if(!window.speechSynthesis)return note('เครื่องนี้ยังไม่รองรับเสียงพูด ลองเปิดด้วย Chrome หรือ Safari');
+  speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang=(voice&&voice.lang)||'zh-CN';if(voice)u.voice=voice;u.rate=slow?.45:.85;setTimeout(function(){if(speechSynthesis.paused)speechSynthesis.resume();speechSynthesis.speak(u)},60);
+  if(!voice&&!warned){warned=true;setTimeout(function(){if(!voice)note('ถ้าไม่ได้ยินเสียง ให้เพิ่มเสียงภาษาจีนในการตั้งค่าเครื่อง')},900)}
+}
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition,REC=null;
+function stopAll(){try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}try{if(REC){REC.abort();REC=null}}catch(e){}}
+
+/* build steps */
+function build(l){
+  var W=l.w.map(function(w,i){return {id:'w'+i,z:w[0],p:w[1],th:w[2],e:w[3]}}),st=[];
+  function pick(i,pool){return shuf([pool[i]].concat(shuf(pool.filter(function(_,k){return k!==i})).slice(0,3)))}
+  function ix(a){return shuf(a.map(function(_,i){return i}))}
+  W.forEach(function(w){st.push({k:'cw',w:w})});
+  l.s.forEach(function(s){st.push({k:'cs',s:s})});
+  var th=W.map(function(w){return {id:w.id,th:w.th,e:w.e}});
+  ix(W).slice(0,3).forEach(function(i){st.push({k:'pic',q:'แตะรูปที่ตรงกับคำนี้',w:W[i],o:pick(i,th),a:W[i].id,ans:W[i].th})});
+  ix(W).slice(0,2).forEach(function(i){st.push({k:'lw',q:'แตะคำจีนที่ตรงกับความหมายนี้',w:W[i],o:pick(i,W),a:W[i].id,ans:W[i].z+' ('+W[i].p+')'})});
+  if(new Set(W.map(function(w){return w.e})).size===W.length)st.push({k:'mt',ws:W,r:shuf(W.map(function(w){return w.id}))});
+  var os=l.s.map(function(s,k){return {id:'s'+k,s:s}}),i0=Math.floor(Math.random()*os.length);
+  if(os.length>1)st.push({k:'ls',q:'แตะประโยคจีนที่ตรงกับความหมายนี้',s:os[i0].s,o:pick(i0,os),a:'s'+i0,ans:pw(os[i0].s.w,24)});
+  if(l.g)st.push({k:'gr',g:l.g});
+  l.ch.forEach(function(c){st.push({k:'st',c:c})});
+  l.s.forEach(function(s){var c=s.w.filter(function(x){return x[1]}).map(function(x){return x[0]});if(c.length>1&&new Set(c).size===c.length&&st.filter(function(x){return x.k==='or'}).length<2)st.push({k:'or',s:s,bank:shuf(c),a:c,ans:pw(s.w.filter(function(x){return x[1]}),24)})});
+  
+  return st;
+}
+var GAMES={pic:1,lw:1,ls:1,st:1,or:1,sp:1,mt:1};
+
+/* state */
+var S={r:'home',li:0,steps:[],i:0,tries:0,wrong:[],fb:null,pk:[],pad:[],pdone:false,sp:{st:'idle',heard:'',n:0},pts:0,games:0,res:null};
+function cs(){return S.steps[S.i]}
+
+/* views */
+function pw(w,size){return '<div class="pcs" style="font-size:'+size+'px">'+w.map(function(x){return '<span class="pc"><i>'+(x[1]||'&nbsp;')+'</i><b>'+x[0]+'</b></span>'}).join('')+'</div>'}
+function snd(t,sm){return '<div class="snds"><button class="snd'+(sm?' sm':'')+'" data-a="say" data-v="'+t+'" aria-label="ฟังเสียงปกติ">🔊'+(sm?'':'<small>ปกติ</small>')+'</button><button class="snd'+(sm?' sm':'')+'" data-a="slow" data-v="'+t+'" aria-label="ฟังเสียงช้า">🐢'+(sm?'':'<small>ช้า</small>')+'</button></div>'}
+function snd(){return ''}
+function say(){}
+function build(l){
+  var W=l.w.map(function(w,i){return {id:'w'+i,z:w[0],p:w[1],th:w[2],e:w[3]}}),
+  th=W.map(function(w){return {id:w.id,th:w.th,e:w.e}});
+  return shuf(W).map(function(w){var o=shuf(th.filter(function(t){return t.id!==w.id})).slice(0,3).concat(th.filter(function(t){return t.id===w.id}));return {k:'pic',q:'แตะรูปที่ตรงกับคำนี้',w:w,o:shuf(o),a:w.id,ans:w.th}});
+}
+function vHome(){
+  var tot=0,n=streak();AL().forEach(function(l){tot+=D.done[l.id]||0});
+  return '<div class="screen"><div class="bar"><span class="pill fire"><b>🔥</b> '+n+' วัน</span><span class="pill">⭐ '+tot+'</span></div>'+
+  '<div class="mas"><div class="panda">🐼</div><div class="bub">'+(n?'วันนี้มาเรียนต่อกันนะ!':'สวัสดี! มาเรียนภาษาจีนกัน')+'</div></div><div class="scroll">'+
+  AL().map(function(l,i){var s=D.done[l.id]||0;return (l.c?'<div style="display:flex;align-items:center;gap:8px">':'')+'<button class="lcard" style="--col:'+l.col+'" data-a="open" data-v="'+i+'"><span class="le">'+l.e+'</span><span class="lt">'+l.t+'</span><span class="ls">'+[1,2,3].map(function(k){return k<=s?'⭐':'☆'}).join('')+'</span></button>'+(l.c?'<button class="x" data-a="edit" data-v="'+(i-LS.length)+'" aria-label="แก้ไข">✏️</button></div>':'')}).join('')+'<button class="btn alt" data-a="bk" style="margin-bottom:10px">💾 สำรอง / ย้ายข้อมูลไปเครื่องอื่น</button><button class="btn alt" data-a="new" style="margin-bottom:6px">➕ เพิ่มบทเรียนของฉัน</button>'+
+  '<p class="h2">สติกเกอร์ของฉัน</p><div class="stk">'+(D.st.length?D.st.map(function(s){return '<span>'+s+'</span>'}).join(''):'<span class="sub">ผ่านด่านเพื่อสะสมสติกเกอร์</span>')+'</div></div></div>';
+}
+function bCard(c){
+  if(c.w)return '<div class="center"><div class="big-e">'+c.w.e+'</div><div class="zh">'+c.w.z+'</div><div class="py">'+c.w.p+'</div><div class="th">'+c.w.th+'</div>'+snd(c.w.z)+'</div><button class="btn" data-a="next">ต่อไป ›</button>';
+  return '<div class="center">'+pw(c.s.w,44)+'<div class="th" style="margin-top:10px">'+c.s.th+'</div>'+snd(txt(c.s))+'</div><button class="btn" data-a="next">ต่อไป ›</button>';
+}
+function optH(o,k){
+  var dis=S.wrong.indexOf(o.id)>=0?' disabled':'';
+  if(k==='pic')return '<button class="opt"'+dis+' data-a="opt" data-v="'+o.id+'"><span class="e">'+o.e+'</span><span>'+o.th+'</span></button>';
+  if(k==='lw')return '<button class="opt"'+dis+' data-a="opt" data-v="'+o.id+'"><span class="py">'+o.p+'</span><span class="zh">'+o.z+'</span></button>';
+  return '<button class="opt"'+dis+' data-a="opt" data-v="'+o.id+'">'+pw(o.s.w,28)+'</button>';
+}
+function bChoice(c){
+  var h='<p class="q">'+c.q+'</p>';
+  if(c.k==='pic')h+='<div class="center" style="flex:none"><div class="zh sm">'+c.w.z+'</div><div class="py">'+c.w.p+'</div>'+snd(c.w.z,1)+'</div>';
+  else h+='<div class="center" style="flex:none"><div class="th" style="font-size:30px">'+(c.k==='lw'?c.w.th:c.s.th)+'</div></div>';
+  return h+'<div class="scroll '+(c.k==='ls'?'list':'grid')+'" style="'+(c.k==='ls'?'':'align-content:start')+'">'+c.o.map(function(o){return optH(o,c.k)}).join('')+'</div>';
+}
+function bGr(c){var g=c.g;return '<div class="scroll"><div class="mas sm"><div class="panda">🐼</div><div class="bub">เกร็ดน่ารู้!</div></div><div style="display:flex;align-items:center;gap:14px;justify-content:center"><div class="zh sm">'+g.z+'</div><div class="py">'+g.p+'</div></div><p class="exp">'+g.th+'</p><div class="pat">'+g.pat.split(g.z).join(g.z+' ('+g.p+')')+'</div>'+
+  g.ex.map(function(e){return '<div class="ex"><div>'+pw(e.w,30)+'<div class="th" style="text-align:center">'+e.th+'</div></div>'+snd(txt(e),1)+'</div>'}).join('')+'</div><button class="btn" data-a="next">เข้าใจแล้ว!</button>'}
+function bSt(c){var ch=c.c;return '<p class="q">ลากเส้นตามตัวอักษรนะ</p><div class="center" style="flex:none"><div class="py">'+ch[1]+' · '+ch[2]+'</div></div><div class="scroll" style="text-align:center"><div class="pad'+(S.pdone?' done':'')+'" id="pad"><div class="g">'+ch[0]+'</div><div class="gd"></div><canvas id="cv"></canvas></div><div style="margin-top:12px;display:flex;gap:12px;justify-content:center"><button class="snd sm" data-a="clr" aria-label="ล้างกระดาน">🧹</button>'+snd(ch[0],1).replace('<div class="snds">','<div class="snds" style="margin:0">')+'</div></div>'+
+  '<button class="btn '+(S.pdone?'ok':'')+'" style="margin-top:14px" data-a="pdone"'+(S.pad.length>=Math.ceil(ch[3]*.5)||S.pdone?'':' disabled')+'>'+(S.pdone?'ต่อไป ›':'เขียนเสร็จแล้ว!')+'</button></div>'}
+function AL(){return LS.concat(D.cu)}
+function cp(c,z){var p='';c.s.w.forEach(function(x){if(x[0]===z)p=x[1]});return '<span class="pc"><i>'+p+'</i><b>'+z+'</b></span>'}
+function sj(s){return s.w.map(function(x){return x[1]?x[0]+' '+x[1]:x[0]}).join(' / ')+' = '+s.th}
+function ps(x){var a=x.split('='),w=a[0].split('/').map(function(y){y=y.trim();var i=y.search(/\s/);return i<0?[y,'']:[y.slice(0,i),y.slice(i).trim()]}).filter(function(y){return y[0]});return w.length?{w:w,th:a.slice(1).join('=').trim()}:null}
+function vEd(){
+  var l=S.ed>=0?D.cu[S.ed]:null,J=function(a){return a.join('\n')},
+  w=l?J(l.w.map(function(x){return x.join(' | ')})):'',
+  s=l?J(l.s.map(sj)):'',
+  g=l&&l.g?J([[l.g.z,l.g.p,l.g.th,l.g.pat].join(' | ')].concat(l.g.ex.map(sj))):'',
+  c=l?J(l.ch.map(function(x){return x.join(' | ')})):'';
+  function f(a,h,id,v,r){if(id!=='e_w')return '';return '<p class="h2">'+a+'</p><p class="sub" style="margin:0 0 6px">'+h+'</p><textarea class="in" id="'+id+'" rows="'+r+'">'+v+'</textarea>'}
+  return '<div class="screen"><div class="top"><button class="x" data-a="home" aria-label="ปิด">✕</button><b>'+(l?'แก้ไขบทเรียน':'บทเรียนใหม่')+'</b></div><div class="scroll"><p class="h2">ชื่อบทเรียน + อีโมจิ</p><div style="display:flex;gap:8px"><input class="in" id="e_t" value="'+(l?l.t:'')+'"><input class="in" id="e_e" style="width:84px;text-align:center" value="'+(l?l.e:'📘')+'"></div>'+
+  f('คำศัพท์ (อย่างน้อย 2 คำ)','บรรทัดละ 1 คำ: 汉字 | พินอิน | คำแปลไทย | อีโมจิ เช่น 你好 | nǐ hǎo | สวัสดี | 👋','e_w',w,5)+
+  f('ประโยค (ไม่บังคับ)','บรรทัดละ 1 ประโยค แบ่งคำด้วย / และใส่คำแปลหลัง = เช่น 你好 nǐ hǎo / ， / 我 wǒ / 是 shì / 可可 kě kě / 。 = สวัสดี ฉันคือเคอเคอ','e_s',s,5)+
+  f('ไวยากรณ์ (ไม่บังคับ)','บรรทัดแรก: 汉字 | พินอิน | คำอธิบาย | รูปประโยค แล้วบรรทัดต่อไปเป็นประโยคตัวอย่างรูปแบบเดียวกับด้านบน','e_g',g,4)+
+  f('ฝึกเขียนตัวอักษร (ไม่บังคับ)','บรรทัดละ 1 ตัว: 汉字 | พินอิน | คำแปล | จำนวนขีด ถ้าเว้นว่างจะเลือกจากคำศัพท์ให้เอง','e_c',c,3)+
+  '<button class="btn" style="margin-top:14px" data-a="save">💾 บันทึกบทเรียน</button>'+(l?'<button class="btn no" style="margin-top:12px" data-a="del">🗑️ ลบบทเรียน</button>':'')+'</div></div>';
+}
+function saveEd(){
+  var bad='',g=function(i){var e=document.getElementById(i);return e?e.value.replace(/[<>&"]/g,''):''},
+  L=function(t){return t.split('\n').map(function(x){return x.trim()}).filter(Boolean)},
+  P=function(x){return x.split('|').map(function(y){return y.trim()})},
+  sn=function(x){var s=ps(x);if(!s||!s.th)bad=bad||'ประโยคต้องมีคำแปลหลังเครื่องหมาย = : '+x;else s.w.forEach(function(q){if(/[\u4e00-\u9fff]/.test(q[0])&&!q[1])bad=bad||'ขาดพินอิน: '+q[0]});return s},
+  t=g('e_t').trim(),
+  W=L(g('e_w')).map(function(x){var a=P(x);if(!a[0]||!a[1]||!a[2])bad=bad||'คำศัพท์ต้องมี 汉字 | พินอิน | คำแปล : '+x;return [a[0]||'',a[1]||'',a[2]||'',a[3]||'🔤']}),
+  SS=L(g('e_s')).map(sn),gl=L(g('e_g')),G=null,
+  C=L(g('e_c')).map(function(x){var a=P(x);return [a[0],a[1]||'',a[2]||'',+a[3]||4]});
+  if(gl.length){var a=P(gl[0]);if(!a[0]||!a[1]||!a[2])bad=bad||'ไวยากรณ์บรรทัดแรกต้องเป็น 汉字 | พินอิน | คำอธิบาย | รูปประโยค';G={z:a[0],p:a[1],th:a[2],pat:a[3]||a[0],ex:gl.slice(1).map(sn)}}
+  if(!t)bad=bad||'ใส่ชื่อบทเรียนก่อนนะ';else if(W.length<2)bad=bad||'ต้องมีคำศัพท์อย่างน้อย 2 คำ';
+  if(bad)return note(bad);
+  if(!C.length)C=W.filter(function(w){return w[0].length===1}).slice(0,2).map(function(w){return [w[0],w[1],w[2],4]});
+  var o=S.ed>=0?D.cu[S.ed]:null,n={id:o?o.id:'c'+Date.now(),c:1,t:t,e:g('e_e').trim()||'📘',col:o?o.col:['#4c7dff','#ff7a45','#2fbf71','#a45cf0','#e8528f'][D.cu.length%5],w:W,s:SS,g:G,ch:C};
+  if(o)D.cu[S.ed]=n;else D.cu.push(n);
+  save();S.r='home';render();
+}
+function bMt(c){
+  var m=S.mt,bd=function(d,s){return 'min-height:84px;margin-bottom:10px;border-color:'+(d?'var(--ok)':s?'var(--pri)':'transparent')},
+  L=c.ws.map(function(w){var d=m.done.indexOf(w.id)>=0;return '<button class="opt" style="'+bd(d,m.sel===w.id)+'"'+(d?' disabled':'')+' data-a="ml" data-v="'+w.id+'">'+pw([[w.z,w.p]],34)+'</button>'}).join(''),
+  R=c.r.map(function(id){var w=c.ws.filter(function(x){return x.id===id})[0],d=m.done.indexOf(id)>=0;return '<button class="opt" style="'+bd(d,0)+'"'+(d?' disabled':'')+' data-a="mr" data-v="'+id+'"><span class="e">'+w.e+'</span></button>'}).join('');
+  return '<p class="q">จับคู่คำจีนกับรูป</p><div class="scroll grid" style="align-content:start"><div>'+L+'</div><div>'+R+'</div></div>';
+}
+function vBk(){
+  var c=btoa(unescape(encodeURIComponent(JSON.stringify(D))));
+  return '<div class="screen"><div class="top"><button class="x" data-a="home" aria-label="ปิด">✕</button><b>สำรอง / ย้ายข้อมูล</b></div><div class="scroll"><p class="sub">กดคัดลอกรหัสนี้ ไปวางในช่องเดียวกันบนอีกเครื่อง แล้วกด “นำเข้า” จะได้บทเรียนที่เพิ่มเอง ดาว สติกเกอร์ และวันที่เรียนต่อเนื่องครบ</p><textarea class="in" id="bk_t" rows="9">'+c+'</textarea><button class="btn" style="margin-top:12px" data-a="cpy">📋 คัดลอกรหัส</button><button class="btn alt" style="margin-top:12px" data-a="imp">⬇️ นำเข้ารหัสที่วางไว้</button></div></div>';
+}
+function bOr(c){
+  var rem=c.bank.filter(function(w){return S.pk.indexOf(w)<0});
+  return '<p class="q">เรียงคำให้เป็นประโยค</p><div class="th" style="text-align:center">'+c.s.th+'</div>'+snd(txt(c.s),1)+'<div class="slot">'+S.pk.map(function(w){return '<button class="chip" data-a="un" data-v="'+w+'">'+cp(c,w)+'</button>'}).join('')+'</div><div class="scroll" style="display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start">'+rem.map(function(w){return '<button class="chip" data-a="or" data-v="'+w+'">'+cp(c,w)+'</button>'}).join('')+'</div><button class="btn" data-a="ock"'+(S.pk.length===c.bank.length?'':' disabled')+'>ตรวจคำตอบ</button>';
+}
+function bSp(c){
+  var p=S.sp,m='แตะไมค์แล้วพูดตามนะ';
+  if(p.st==='rec')m='กำลังฟังอยู่… พูดได้เลย!';
+  if(p.st==='retry')m=(p.heard?'ได้ยินว่า “'+p.heard+'” ':'')+'ลองอีกครั้งนะ สู้ ๆ!';
+  if(p.st==='ok')m='เก่งมาก! พูดได้ชัดเลย 🎉';
+  if(p.st==='pass')m='ไม่เป็นไรนะ ฝึกไปเรื่อย ๆ ก็เก่งขึ้น!';
+  var fb=p.st==='fb';
+  return '<p class="q">พูดตามแพนด้านะ</p><div class="center">'+pw(c.s.w,44)+'<div class="th" style="margin-top:6px">'+c.s.th+'</div>'+snd(txt(c.s))+'</div>'+
+  (fb?'<p class="sub" style="text-align:center">เครื่องนี้ใช้ตรวจเสียงพูดไม่ได้ พูดตามออกเสียงแล้วกดปุ่มด้านล่างได้เลย</p><button class="btn ok" data-a="spdone">ฉันพูดแล้ว!</button>':
+  '<div class="center" style="flex:none"><button class="mic'+(p.st==='rec'?' rec':'')+'" data-a="mic" aria-label="พูด">🎙️</button><p style="margin:8px 0 0;text-align:center;font-weight:600">'+m+'</p></div>'+
+  (p.st==='ok'||p.st==='pass'?'<button class="btn ok" data-a="spnext">ต่อไป ›</button>':(p.n>=1?'<button class="btn alt" data-a="spskip">ข้ามข้อนี้</button>':'<div style="height:62px"></div>')));
+}
+function vEx(){
+  var c=cs(),b={cw:bCard,cs:bCard,pic:bChoice,lw:bChoice,ls:bChoice,gr:bGr,st:bSt,or:bOr,sp:bSp,mt:bMt}[c.k](c);
+  var h='<div class="screen"><div class="top"><button class="x" data-a="home" aria-label="ปิด">✕</button><div class="track"><div class="fill" style="width:'+(S.i/S.steps.length*100)+'%"></div></div><span style="font-size:30px">🐼</span></div><div class="body">'+b+'</div></div>';
+  if(S.fb)h+='<div class="sheet '+(S.fb.ok?'ok':'no')+'"><div><div class="shin"><span class="sp">🐼</span><div><b>'+(S.fb.ok?rnd(PRAISE):'ไม่เป็นไรนะ')+'</b>'+(S.fb.rev?'<div>คำตอบคือ '+S.fb.ans+'</div>':'')+'</div></div><button class="btn '+(S.fb.ok?'ok':'no')+'" data-a="next">ต่อไป ›</button></div></div>';
+  return h;
+}
+function vRes(){
+  var r=S.res;return '<div class="screen"><div class="center"><div class="panda" style="font-size:96px">🐼</div><div class="stars">'+[1,2,3].map(function(k){return '<span>'+(k<=r.stars?'⭐':'☆')+'</span>'}).join('')+'</div><h2 style="margin:6px 0">'+(r.stars===3?'สุดยอดไปเลย!':r.stars===2?'เก่งมาก!':'ผ่านด่านแล้ว!')+'</h2>'+
+  '<div class="th">ได้สติกเกอร์ใหม่ <span style="font-size:44px;vertical-align:middle">'+r.sticker+'</span></div><div class="pill fire" style="margin-top:12px"><b>🔥</b> เรียนต่อเนื่อง '+streak()+' วัน</div></div><button class="btn" data-a="home">กลับหน้าหลัก</button></div>';
+}
+function render(){
+  $.innerHTML=S.r==='home'?vHome():S.r==='ex'?vEx():S.r==='ed'?vEd():S.r==='bk'?vBk():vRes();
+  if(S.r==='ex'&&cs().k==='st')setupPad();
+}
+
+/* tracing pad */
+function setupPad(){
+  var pad=document.getElementById('pad'),cv=document.getElementById('cv');if(!cv)return;
+  var r=pad.getBoundingClientRect(),d=window.devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;
+  var x=cv.getContext('2d');x.scale(d,d);x.lineWidth=r.width/28;x.lineCap=x.lineJoin='round';x.strokeStyle=getComputedStyle(document.body).color;
+  function ln(a){if(a.length<2)return;x.beginPath();x.moveTo(a[0][0],a[0][1]);for(var i=1;i<a.length;i++)x.lineTo(a[i][0],a[i][1]);x.stroke()}
+  if(!S.pdone)S.pad.forEach(ln);
+  var cur=null;function pt(e){var b=cv.getBoundingClientRect();return [e.clientX-b.left,e.clientY-b.top]}
+  cv.onpointerdown=function(e){if(S.pdone)return;cv.setPointerCapture(e.pointerId);cur=[pt(e)]};
+  cv.onpointermove=function(e){if(!cur)return;var p=pt(e),l=cur[cur.length-1];cur.push(p);ln([l,p])};
+  cv.onpointerup=cv.onpointercancel=function(){if(!cur)return;var c=cur;cur=null;if(c.length>1){S.pad.push(c);render()}};
+}
+
+/* flow */
+function good(){S.pts+=[1,.5][S.tries]||.25;S.fb={ok:1}}
+function bad(id){
+  S.tries++;
+  if(S.tries>=2){S.pts+=.25;S.fb={ok:0,rev:1,ans:cs().ans}}else{if(id)S.wrong.push(id);note(rnd(TRY))}
+}
+function go(){
+  stopAll();S.mt={sel:null,done:[],miss:0};S.fb=null;S.tries=0;S.wrong=[];S.pk=[];S.pad=[];S.pdone=false;S.sp={st:'idle',heard:'',n:0};
+  if(S.i+1>=S.steps.length)return finish();
+  S.i++;render();
+}
+function finish(){
+  var l=AL()[S.li],ratio=S.pts/S.games,stars=ratio>=.8?3:ratio>=.5?2:1,sticker=rnd(STK);
+  D.done[l.id]=Math.max(D.done[l.id]||0,stars);D.st.push(sticker);if(D.st.length>30)D.st.shift();touchDay();save();
+  S.res={stars:stars,sticker:sticker};S.r='res';render();
+}
+function norm(s){return s.replace(/[^\u4e00-\u9fff]/g,'')}
+function sim(h,t){if(!t)return 0;var hit=0;for(var i=0;i<t.length;i++)if(h.indexOf(t[i])>=0)hit++;return hit/t.length}
+function mic(){
+  if(!SR){S.sp.st='fb';return render()}
+  if(S.sp.st==='rec')return;stopAll();
+  var r=new SR();REC=r;r.lang='zh-CN';r.maxAlternatives=3;r.interimResults=false;var got=false;
+  r.onresult=function(e){got=true;var best=0,first='';for(var i=0;i<e.results[0].length;i++){var a=e.results[0][i].transcript;if(!i)first=a;best=Math.max(best,sim(norm(a),norm(txt(cs().s))))}
+    S.sp.heard=first;S.sp.n++;S.sp.st=best>=.6?'ok':(S.sp.n>=2?'pass':'retry');if(S.sp.st==='ok')S.pts+=S.sp.n===1?1:.5;if(S.sp.st==='pass')S.pts+=.3;render()};
+  r.onerror=function(e){got=true;if(e.error==='not-allowed'||e.error==='service-not-allowed')S.sp.st='fb';else{S.sp.st='retry';S.sp.heard=''}render()};
+  r.onend=function(){if(REC===r)REC=null;if(!got&&S.sp.st==='rec'){S.sp.st='retry';S.sp.heard='';render()}};
+  try{S.sp.st='rec';r.start();render()}catch(e){S.sp.st='fb';render()}
+}
+function A(a,v){
+  var c=S.steps[S.i];
+  switch(a){
+  case 'open':S.mt={sel:null,done:[],miss:0};S.li=+v;S.steps=build(AL()[S.li]);S.games=S.steps.filter(function(s){return GAMES[s.k]}).length;S.i=0;S.pts=0;S.fb=null;S.tries=0;S.wrong=[];S.pk=[];S.pad=[];S.sp={st:'idle',heard:'',n:0};S.r='ex';break;
+  case 'home':stopAll();S.r='home';break;
+  case 'new':S.ed=-1;S.r='ed';break;
+  case 'bk':S.r='bk';break;
+  case 'cpy':var tb=document.getElementById('bk_t');tb.select();try{navigator.clipboard.writeText(tb.value)}catch(e){document.execCommand('copy')}note('คัดลอกแล้ว');return;
+  case 'imp':if(!confirm('ข้อมูลในเครื่องนี้จะถูกแทนที่ ตกลงไหม?'))return;
+   try{var x=JSON.parse(decodeURIComponent(escape(atob(document.getElementById('bk_t').value.replace(/\s/g,'')))));if(!x||!Array.isArray(x.cu))throw 0;D.cu=x.cu;D.done=x.done||{};D.st=x.st||[];D.streak=x.streak||0;D.last=x.last||'';save();S.r='home';break}catch(e){note('รหัสไม่ถูกต้อง ลองคัดลอกมาใหม่ทั้งหมดนะ');return}
+  case 'ml':if(S.fb||S.mt.done.indexOf(v)>=0)return;S.mt.sel=v;break;
+  case 'mr':if(S.fb||S.mt.done.indexOf(v)>=0)return;if(!S.mt.sel){note('แตะคำจีนก่อนนะ');return}
+   if(v===S.mt.sel){S.mt.done.push(v);S.mt.sel=null;say(c.ws.filter(function(x){return x.id===v})[0].z);if(S.mt.done.length===c.ws.length){S.pts+=S.mt.miss?(S.mt.miss<3?.5:.25):1;S.fb={ok:1}}}else{S.mt.miss++;S.mt.sel=null;note(rnd(TRY))}break;
+  case 'edit':S.ed=+v;S.r='ed';break;
+  case 'save':saveEd();return;
+  case 'del':if(confirm('ลบบทเรียนนี้ใช่ไหม?')){var dl=D.cu.splice(S.ed,1)[0];delete D.done[dl.id];save();S.r='home';break}return;
+  case 'say':say(v);return;
+  case 'slow':say(v,1);return;
+  case 'next':go();return;
+  case 'opt':if(S.fb||S.wrong.indexOf(v)>=0)return;if(v===c.a)good();else bad(v);break;
+  case 'or':S.pk.push(v);break;
+  case 'un':S.pk=S.pk.filter(function(w){return w!==v});break;
+  case 'ock':if(S.fb)return;if(S.pk.join('|')===c.a.join('|'))good();else{S.pk=[];bad()}break;
+  case 'clr':S.pad=[];S.pdone=false;break;
+  case 'pdone':if(!S.pdone){S.pdone=true;S.pts+=1;note(rnd(PRAISE)+' เขียนสวยมาก!');break}go();return;
+  case 'mic':mic();return;
+  case 'spdone':S.pts+=.5;go();return;
+  case 'spnext':case 'spskip':if(a==='spskip')S.pts+=.1;go();return;
+  }
+  render();
+}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-a]');if(t&&!t.disabled)A(t.dataset.a,t.dataset.v)});
+render();
+})();
+</script>
+</body>
+</html>
