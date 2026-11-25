@@ -273,7 +273,7 @@ function vEx(){
   return h;
 }
 function vRes(){
-  var r=S.res;return '<div class="screen"><div class="center"><div class="panda" style="font-size:96px">🐼</div><div class="stars">'+[1,2,3].map(function(k){return '<span>'+(k<=r.stars?'⭐':'☆')+'</span>'}).join('')+'</div><h2 style="margin:6px 0">'+(r.stars===3?'สุดยอดไปเลย!':r.stars===2?'เก่งมาก!':'ผ่านด่านแล้ว!')+'</h2>'+
+  var r=S.res;return '<div class="screen"><div class="center"><div class="panda" style="font-size:96px">🐼</div><div class="stars">'+[1,2,3].map(function(k){return '<span>'+(k<=r.stars?'⭐':'☆')+'</span>'}).join('')+'</div><h2 style="margin:6px 0">'+(r.stars===3?'สุดยอดไปเลย!':r.stars===2?'เก่งมาก!':'ผ่านด่านแล้ว!')+'</h2>'+'<div class="pill" style="font-size:32px;margin:4px 0">'+(Math.round(r.pts*10)/10)+' / '+r.tot+'</div><div class="sub" style="margin-bottom:8px">คะแนนที่ได้ / คะแนนเต็ม</div>'+
   '<div class="th">ได้สติกเกอร์ใหม่ <span style="font-size:44px;vertical-align:middle">'+r.sticker+'</span></div><div class="pill fire" style="margin-top:12px"><b>🔥</b> เรียนต่อเนื่อง '+streak()+' วัน</div></div><button class="btn" data-a="home">กลับหน้าหลัก</button></div>';
 }
 function render(){
@@ -308,7 +308,7 @@ function go(){
 function finish(){
   var l=AL()[S.li],ratio=S.pts/S.games,stars=ratio>=.8?3:ratio>=.5?2:1,sticker=rnd(STK);
   D.done[l.id]=Math.max(D.done[l.id]||0,stars);D.st.push(sticker);if(D.st.length>30)D.st.shift();touchDay();save();
-  S.res={stars:stars,sticker:sticker};S.r='res';render();
+  S.res={stars:stars,sticker:sticker,pts:S.pts,tot:S.games};S.r='res';render();
 }
 function norm(s){return s.replace(/[^\u4e00-\u9fff]/g,'')}
 function sim(h,t){if(!t)return 0;var hit=0;for(var i=0;i<t.length;i++)if(h.indexOf(t[i])>=0)hit++;return hit/t.length}
