@@ -100,7 +100,7 @@ body{background:linear-gradient(180deg,#c4e8ff 0%,#fff1c9 100%) fixed}
 .opt:nth-child(4n+4){background:#e8f1ff;border-color:#8ab4ff}
 .chip{background:#fff3c4;border-bottom:4px solid #ffd24d}
 }
-.pad.wr .g{visibility:visible;color:var(--text);opacity:.25}.pad.wr.wrs .g{opacity:.4}
+.pad.wr{overflow:hidden;width:calc(var(--c)*var(--n));aspect-ratio:var(--n)}.pad.wr .gd{background-size:calc(100% / var(--n)) 100%}.pad.wr.m .g{letter-spacing:calc(var(--c)*.2)}.pad.wr .g{visibility:visible;color:var(--text);opacity:.25;font-size:calc(var(--c)*.8)}.pad.wr.wrs .g{opacity:.4}
 </style>
 </head>
 <body>
@@ -257,7 +257,7 @@ function vHs(){var H=(D.hist||[]).slice().reverse(),n=H.length,sp=0,so=0;H.forEa
   (n?H.map(function(h){var pc=h.o?Math.round(h.p/h.o*100):0;return '<div style="background:var(--card);border-radius:16px;padding:10px 14px;margin-bottom:8px;border-left:10px solid '+(pc>=80?'#15c866':pc>=50?'#ff9f1a':'#ff5a5f')+'"><div style="font-size:18px;opacity:.7">'+fd(h.t)+'</div><div style="font-size:22px;font-weight:700">'+h.n+'</div><div style="font-size:24px">'+(Math.round(h.p*10)/10)+' / '+h.o+' ('+pc+'%)'+(h.wn?' · ✍️ เขียน '+h.w+'/'+h.wn:'')+'</div></div>'}).join(''):'<p class="sub">ยังไม่มีประวัติการสอบ</p>')+
   '<button class="btn" data-a="hcp" style="margin-top:8px">📋 คัดลอกสรุปส่งผู้ปกครอง</button>'+(n?'<button class="btn no" data-a="hdel" style="margin-top:10px">🗑️ ล้างประวัติ</button>':'')+'</div></div>'}
 function bWt(c){var w=c.w,sh=S.wsh;
-  return '<p class="q">✍️ เขียนคำจีนให้ถูกต้อง</p><div class="center" style="flex:none"><div class="th" style="font-size:32px">'+w.th+'</div><div class="py">'+w.p+'</div></div><div class="scroll" style="text-align:center"><div class="pad wr'+(sh?' wrs':'')+'" id="pad"><div class="g">'+w.z+'</div><div class="gd"></div><canvas id="cv"></canvas></div>'+
+  return '<p class="q">✍️ เขียนคำจีนให้ถูกต้อง</p><div class="center" style="flex:none"><div class="th" style="font-size:32px">'+w.th+'</div><div class="py">'+w.p+'</div></div><div class="scroll" style="text-align:center"><div class="pad wr'+(w.z.length>1?' m':'')+(sh?' wrs':'')+'" id="pad" style="--n:'+w.z.length+';--c:min(280px,calc(92vw / '+w.z.length+'),44vh)"><div class="g">'+w.z+'</div><div class="gd"></div><canvas id="cv"></canvas></div>'+
   (sh?'<div class="zh sm" style="margin-top:8px">'+w.z+'</div><p class="sub">เทียบกับคำที่เขียน แล้วเลือกผล (ผู้ปกครองช่วยตรวจได้)</p><div style="display:flex;gap:10px"><button class="btn ok" style="flex:1" data-a="wok">✅ เขียนถูก</button><button class="btn no" style="flex:1" data-a="wno">❌ ยังไม่ถูก</button></div>':
   '<div style="margin-top:10px"><button class="snd sm" data-a="clr" aria-label="ล้างกระดาน">🧹</button></div><button class="btn" style="margin-top:12px" data-a="wshow"'+(S.pad.length?'':' disabled')+'>เขียนเสร็จแล้ว ตรวจคำตอบ</button>')+'</div>'}
 function bOr(c){
@@ -295,7 +295,7 @@ function render(){
 function setupPad(){
   var pad=document.getElementById('pad'),cv=document.getElementById('cv');if(!cv)return;
   var r=pad.getBoundingClientRect(),d=window.devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;
-  var x=cv.getContext('2d');x.scale(d,d);x.lineWidth=r.width/28;x.lineCap=x.lineJoin='round';x.strokeStyle=getComputedStyle(document.body).color;
+  var x=cv.getContext('2d');x.scale(d,d);x.lineWidth=r.height/28;x.lineCap=x.lineJoin='round';x.strokeStyle=getComputedStyle(document.body).color;
   function ln(a){if(a.length<2)return;x.beginPath();x.moveTo(a[0][0],a[0][1]);for(var i=1;i<a.length;i++)x.lineTo(a[i][0],a[i][1]);x.stroke()}
   if(!S.pdone)S.pad.forEach(ln);
   var cur=null;function pt(e){var b=cv.getBoundingClientRect();return [e.clientX-b.left,e.clientY-b.top]}
