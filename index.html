@@ -2,9 +2,9 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<meta name="theme-color" content="#eaf6ff"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="แพนด้าน้อย"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐼</text></svg>">
+<meta name="theme-color" content="#eaf6ff"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="สอบภาษาจีน"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐼</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>แพนด้าน้อยเรียนภาษาจีน</title>
+<title>สอบภาษาจีน</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap">
 <style>
 :root{--bg:#eaf6ff;--card:#fff;--text:#23304a;--sub:#6b7a99;--line:#cfe0f5;--pri:#4c7dff;--priD:#3459d6;--ok:#2fbf71;--okD:#1f9658;--okbg:#d9f7e6;--no:#ff8a3d;--noD:#d96a1f;--nobg:#ffe9d6;--sun:#ffc93c;--tint:#e3ecff;--ghost:#dbe6f6;--sh:0 3px 0 var(--line)}
@@ -100,6 +100,7 @@ body{background:linear-gradient(180deg,#c4e8ff 0%,#fff1c9 100%) fixed}
 .opt:nth-child(4n+4){background:#e8f1ff;border-color:#8ab4ff}
 .chip{background:#fff3c4;border-bottom:4px solid #ffd24d}
 }
+.pad.wr .g{visibility:visible;color:var(--text);opacity:.25}.pad.wr.wrs .g{opacity:.4}
 </style>
 </head>
 <body>
@@ -109,31 +110,7 @@ body{background:linear-gradient(180deg,#c4e8ff 0%,#fff1c9 100%) fixed}
 var $=document.getElementById('app');
 function pk(s){return s.split('|').map(function(x){return x.split(':')})}
 function sen(s,th){return {w:pk(s),th:th}}
-var LS=[
-{id:'hi',t:'ทักทายและแนะนำตัว',e:'👋',col:'#4c7dff',
- w:[['你好','nǐ hǎo','สวัสดี','👋'],['我','wǒ','ฉัน','🙋'],['你','nǐ','เธอ / คุณ','🫵'],['朋友','péng you','เพื่อน','🧑‍🤝‍🧑']],
- s:[sen('你好:nǐ hǎo|，:|我:wǒ|是:shì|可可:kě kě|。:','สวัสดี ฉันคือเคอเคอ'),sen('我:wǒ|是:shì|小明:xiǎo míng|。:','ฉันคือเสี่ยวหมิง'),sen('你好:nǐ hǎo|，:|朋友:péng you|！:','สวัสดีเพื่อน')],
- g:{z:'是',p:'shì',th:'ใช้บอกว่า “ใครคือใคร” เหมือนคำว่า “คือ” หรือ “เป็น” ในภาษาไทย',pat:'ใคร + 是 + ชื่อ',ex:[sen('我:wǒ|是:shì|可可:kě kě|。:','ฉันคือเคอเคอ'),sen('他:tā|是:shì|小明:xiǎo míng|。:','เขาคือเสี่ยวหมิง')]},
- ch:[['我','wǒ','ฉัน',7],['你','nǐ','เธอ / คุณ',7]]},
-{id:'bye',t:'การบอกลา',e:'👋',col:'#ff7a45',
- w:[['再见','zài jiàn','ลาก่อน','🚶'],['老师','lǎo shī','คุณครู','👩‍🏫'],['同学','tóng xué','เพื่อนร่วมชั้น','🧒'],['明天','míng tiān','พรุ่งนี้','🌅']],
- s:[sen('再见:zài jiàn|。:','ลาก่อน'),sen('老师:lǎo shī|，:|再见:zài jiàn|！:','คุณครู ลาก่อนค่ะ'),sen('明天:míng tiān|见:jiàn|。:','เจอกันพรุ่งนี้')],
- g:{z:'见',p:'jiàn',th:'แปลว่า “เจอ” ใช้พูดว่า “เจอกัน…” ตามด้วยเวลา',pat:'เวลา + 见',ex:[sen('明天:míng tiān|见:jiàn|。:','เจอกันพรุ่งนี้'),sen('老师:lǎo shī|，:|明天:míng tiān|见:jiàn|！:','คุณครู เจอกันพรุ่งนี้ค่ะ')]},
- ch:[['见','jiàn','เจอ',4],['天','tiān','ท้องฟ้า / วัน',4]]},
-{id:'pic',t:'จับคู่คำจีน: ของใกล้ตัว',e:'🍎',col:'#2fbf71',
- w:[['熊猫','xióng māo','แพนด้า','🐼'],['苹果','píng guǒ','แอปเปิล','🍎'],['书','shū','หนังสือ','📕'],['猫','māo','แมว','🐱'],['香蕉','xiāng jiāo','กล้วย','🍌']],
- s:[],ch:[['书','shū','หนังสือ',4],['猫','māo','แมว',11]]},
-{id:'t1',t:'วัน สัปดาห์ และซูเปอร์มาร์เก็ต',e:'🛒',col:'#ff7a45',s:[],ch:[],
- w:[['昨天','zuó tiān','เมื่อวาน','⏪'],['星期','xīng qī','สัปดาห์','🗓️'],['星期几','xīng qī jǐ','วันอะไร','❓'],['今天','jīn tiān','วันนี้','☀️'],['明天','míng tiān','พรุ่งนี้','🌅'],['做','zuò','ทำ','🛠️'],['超市','chāo shì','ซูเปอร์มาร์เก็ต','🛒']]},
-{id:'t2',t:'เดือน วันที่ และวันสำคัญ',e:'📆',col:'#a45cf0',s:[],ch:[],
- w:[['月','yuè','เดือน','🌙'],['几月','jǐ yuè','เดือนไหน','📆'],['号','hào','วันที่','🔢'],['几号','jǐ hào','วันที่เท่าไร','🤔'],['圣诞节','Shèng dàn Jié','วันคริสต์มาส','🎄'],['元旦','Yuán dàn','วันปีใหม่','🎆']]},
-{id:'t3',t:'คนประเทศต่าง ๆ',e:'🌏',col:'#e8528f',s:[],ch:[],
- w:[['哪','nǎ','ไหน','📍'],['国','guó','ประเทศ','🌏'],['人','rén','คน','🧑'],['哪国人','nǎ guó rén','คนประเทศไหน','🙋'],['中国人','Zhōng guó rén','คนจีน','🐉'],['泰国人','Tài guó rén','คนไทย','🐘'],['英国人','Yīng guó rén','คนอังกฤษ','💂'],['日本人','Rì běn rén','คนญี่ปุ่น','🗻']]},
-{id:'t4',t:'วิชาเรียนและภาษา',e:'📚',col:'#2fbf71',s:[],ch:[],
- w:[['读','dú','เรียน อ่าน','📖'],['三年级','sān nián jí','ประถมศึกษาปีที่ 3','🎒'],['学习','xué xí','เรียน','✏️'],['泰语','Tài yǔ','ภาษาไทย','🐘'],['汉语','Hàn yǔ','ภาษาจีน','🐉'],['英语','Yīng yǔ','ภาษาอังกฤษ','💂'],['数学','shù xué','คณิตศาสตร์','➗'],['最','zuì','ที่สุด','🏆']]},
-{id:'t5',t:'วันในสัปดาห์ (星期)',e:'🗓️',col:'#4c7dff',s:[],ch:[],
- w:[['星期一','xīng qī yī','วันจันทร์','1️⃣'],['星期二','xīng qī èr','วันอังคาร','2️⃣'],['星期三','xīng qī sān','วันพุธ','3️⃣'],['星期四','xīng qī sì','วันพฤหัสบดี','4️⃣'],['星期五','xīng qī wǔ','วันศุกร์','5️⃣'],['星期六','xīng qī liù','วันเสาร์','6️⃣'],['星期天','xīng qī tiān','วันอาทิตย์','☀️']]}
-];
+var LS=[{"id": "k1", "t": "1 · ที่อยู่และโทรศัพท์", "e": "🏠", "col": "#ff7a45", "s": [], "ch": [], "w": [["住", "zhù", "อาศัยอยู่", "🏠"], ["在", "zài", "อยู่ที่ / ที่", "📍"], ["花园", "huā yuán", "สวน (ชื่อถนน)", "🌷"], ["路", "lù", "ถนน", "🛣️"], ["百", "bǎi", "ร้อย", "💯"], ["号", "hào", "เลขที่", "#️⃣"], ["话", "huà", "คำพูด", "💬"], ["电话", "diàn huà", "โทรศัพท์", "☎️"], ["码", "mǎ", "เลข รหัส", "🏷️"], ["号码", "hào mǎ", "หมายเลข", "🔢"], ["电话号码", "diàn huà hào mǎ", "หมายเลขโทรศัพท์", "📞"]]}, {"id": "k2", "t": "1 · ไหน กี่ เท่าไร", "e": "❓️", "col": "#4c7dff", "s": [], "ch": [], "w": [["哪", "nǎ", "ไหน", "❓️"], ["儿", "ér", "เออร์ (คำลงท้าย)", "🗣️"], ["哪儿", "nǎr", "ที่ไหน", "🧭"], ["多", "duō", "มาก", "➕️"], ["少", "shǎo", "น้อย", "➖️"], ["多少", "duō shao", "เท่าไร กี่", "🧮"]]}, {"id": "k3", "t": "1 · คำถามที่ใช้บ่อย", "e": "💬", "col": "#2fbf71", "s": [], "ch": [], "w": [["你叫什么名字？", "nǐ jiào shén me míng zi", "คุณชื่ออะไร", "📛"], ["你几岁？", "nǐ jǐ suì", "คุณอายุเท่าไร", "🎂"], ["你家有几口人？", "nǐ jiā yǒu jǐ kǒu rén", "บ้านคุณมีกี่คน", "👪"], ["你家有谁？", "nǐ jiā yǒu shéi", "บ้านคุณมีใครบ้าง", "🧑‍🤝‍🧑"], ["你家住在哪儿？", "nǐ jiā zhù zài nǎr", "บ้านคุณอยู่ที่ไหน", "🏡"], ["你家的电话号码是多少？", "nǐ jiā de diàn huà hào mǎ shì duō shao", "เบอร์โทรบ้านคุณคืออะไร", "📱"]]}, {"id": "k4", "t": "ตัวเลข 0-10 และร้อย", "e": "🔢", "col": "#a45cf0", "s": [], "ch": [], "w": [["〇", "líng", "ศูนย์", "0️⃣"], ["一", "yī", "หนึ่ง", "1️⃣"], ["二", "èr", "สอง", "2️⃣"], ["三", "sān", "สาม", "3️⃣"], ["四", "sì", "สี่", "4️⃣"], ["五", "wǔ", "ห้า", "5️⃣"], ["六", "liù", "หก", "6️⃣"], ["七", "qī", "เจ็ด", "7️⃣"], ["八", "bā", "แปด", "8️⃣"], ["九", "jiǔ", "เก้า", "9️⃣"], ["十", "shí", "สิบ", "🔟"], ["百", "bǎi", "ร้อย", "💯"]]}, {"id": "k5", "t": "2 · สมาชิกในครอบครัว", "e": "👨‍👩‍👧‍👦", "col": "#e8528f", "s": [], "ch": [], "w": [["爸爸", "bà ba", "พ่อ", "👨"], ["妈妈", "mā ma", "แม่", "👩"], ["爷爷", "yé ye", "ปู่", "👴"], ["奶奶", "nǎi nai", "ย่า", "👵"], ["外公", "wài gōng", "ตา (พ่อของแม่)", "🧓"], ["外婆", "wài pó", "ยาย (แม่ของแม่)", "👩‍🦳"], ["叔叔", "shū shu", "อาผู้ชาย (น้องชายพ่อ)", "🧔"], ["姑姑", "gū gu", "อาผู้หญิง (พี่น้องสาวของพ่อ)", "👩‍🦰"], ["姨妈", "yí mā", "น้าสาว (พี่น้องสาวของแม่)", "👱‍♀️"], ["舅舅", "jiù jiu", "น้าชาย (พี่น้องชายของแม่)", "🧑‍🦱"], ["我", "wǒ", "ฉัน", "🙋"], ["家人", "jiā rén", "สมาชิกในครอบครัว", "👨‍👩‍👧‍👦"]]}, {"id": "k6", "t": "2 · พี่น้องและความรัก", "e": "❤️", "col": "#ffb020", "s": [], "ch": [], "w": [["兄", "xiōng", "พี่ชาย", "👦"], ["兄弟", "xiōng dì", "พี่น้องผู้ชาย", "👬"], ["姐妹", "jiě mèi", "พี่น้องผู้หญิง", "👭"], ["兄弟姐妹", "xiōng dì jiě mèi", "พี่น้อง (ชายและหญิง)", "👨‍👩‍👧‍👦"], ["哥哥", "gē ge", "พี่ชาย", "👨‍🦱"], ["姐姐", "jiě jie", "พี่สาว", "👧"], ["弟弟", "dì di", "น้องชาย", "👶"], ["妹妹", "mèi mei", "น้องสาว", "🎀"], ["爱", "ài", "รัก", "❤️"], ["也", "yě", "ก็ ด้วย", "🤝"], ["他们", "tā men", "พวกเขา", "👥"]]}, {"id": "k7", "t": "3 · ปี เดือน วัน", "e": "📆", "col": "#17a2b8", "s": [], "ch": [], "w": [["年", "nián", "ปี", "📆"], ["月", "yuè", "เดือน", "🌙"], ["十二月", "shí èr yuè", "ธันวาคม", "🎄"], ["号", "hào", "วันที่ (ของเดือน)", "#️⃣"], ["日", "rì", "วัน", "🌞"], ["天", "tiān", "วัน", "☁️"], ["星", "xīng", "ดาว", "⭐️"], ["期", "qī", "ช่วงเวลา", "⏳️"], ["星期", "xīng qī", "สัปดาห์", "🗓️"], ["星期天", "xīng qī tiān", "วันอาทิตย์", "☀️"], ["今天", "jīn tiān", "วันนี้", "🔆"], ["那", "nà", "นั้น", "👉"], ["那天", "nà tiān", "วันนั้น", "🔎"]]}, {"id": "k8", "t": "วันในสัปดาห์", "e": "🗓️", "col": "#ff7a45", "s": [], "ch": [], "w": [["星期一", "xīng qī yī", "วันจันทร์", "1️⃣"], ["星期二", "xīng qī èr", "วันอังคาร", "2️⃣"], ["星期三", "xīng qī sān", "วันพุธ", "3️⃣"], ["星期四", "xīng qī sì", "วันพฤหัสบดี", "4️⃣"], ["星期五", "xīng qī wǔ", "วันศุกร์", "5️⃣"], ["星期六", "xīng qī liù", "วันเสาร์", "6️⃣"], ["星期天", "xīng qī tiān", "วันอาทิตย์", "☀️"], ["星期日", "xīng qī rì", "วันอาทิตย์", "🌞"]]}, {"id": "k9", "t": "เดือนทั้ง 12", "e": "🍓", "col": "#4c7dff", "s": [], "ch": [], "w": [["一月", "yī yuè", "มกราคม", "🎃"], ["二月", "èr yuè", "กุมภาพันธ์", "🍄"], ["三月", "sān yuè", "มีนาคม", "🌶"], ["四月", "sì yuè", "เมษายน", "🍃"], ["五月", "wǔ yuè", "พฤษภาคม", "🎍"], ["六月", "liù yuè", "มิถุนายน", "🍎"], ["七月", "qī yuè", "กรกฎาคม", "🥕"], ["八月", "bā yuè", "สิงหาคม", "🍐"], ["九月", "jiǔ yuè", "กันยายน", "🍌"], ["十月", "shí yuè", "ตุลาคม", "🍒"], ["十一月", "shí yī yuè", "พฤศจิกายน", "🌰"], ["十二月", "shí èr yuè", "ธันวาคม", "🍓"]]}, {"id": "k10", "t": "3 · วันเกิด", "e": "🎂", "col": "#2fbf71", "s": [], "ch": [], "w": [["属", "shǔ", "เกิดปี (นักษัตร)", "🐾"], ["出", "chū", "ออก", "🚪"], ["生", "shēng", "เกิด", "🍼"], ["出生", "chū shēng", "เกิด (ถือกำเนิด)", "👶"], ["生日", "shēng rì", "วันเกิด", "🎂"], ["她", "tā", "เธอ (ผู้หญิง)", "👩"], ["今年", "jīn nián", "ปีนี้", "🆕"], ["明天", "míng tiān", "พรุ่งนี้", "🌅"], ["快乐", "kuài lè", "สุขสันต์ มีความสุข", "🥳"], ["真", "zhēn", "จริง ๆ", "✅️"], ["学生", "xué shēng", "นักเรียน", "🎒"]]}, {"id": "k11", "t": "นักษัตร 12 ตัว", "e": "🐲", "col": "#a45cf0", "s": [], "ch": [], "w": [["鼠", "shǔ", "หนู", "🐭"], ["牛", "niú", "วัว", "🐮"], ["虎", "hǔ", "เสือ", "🐯"], ["兔", "tù", "กระต่าย", "🐰"], ["龙", "lóng", "มังกร", "🐲"], ["蛇", "shé", "งู", "🐍"], ["马", "mǎ", "ม้า", "🐴"], ["羊", "yáng", "แกะ", "🐑"], ["猴", "hóu", "ลิง", "🐵"], ["鸡", "jī", "ไก่", "🐔"], ["狗", "gǒu", "สุนัข", "🐶"], ["猪", "zhū", "หมู", "🐷"]]}, {"id": "k12", "t": "สิ่งของและลักษณนาม", "e": "👗", "col": "#e8528f", "s": [], "ch": [], "w": [["两", "liǎng", "สอง (ใช้หน้าลักษณนาม)", "✌️"], ["个", "gè", "ลักษณนามทั่วไป", "🔹"], ["条", "tiáo", "ลักษณนามของยาว ๆ", "〰️"], ["苹果", "píng guǒ", "แอปเปิล", "🍎"], ["裙子", "qún zi", "กระโปรง", "👗"], ["裤子", "kù zi", "กางเกง", "👖"], ["鱼", "yú", "ปลา", "🐟"], ["文具盒", "wén jù hé", "กล่องเครื่องเขียน", "🧰"], ["女生", "nǚ shēng", "นักเรียนหญิง", "👩‍🎓"], ["人", "rén", "คน", "🧑"]]}, {"id": "k13", "t": "ตัวอักษรจากหนังสือ", "e": "✏️", "col": "#ffb020", "s": [], "ch": [], "w": [["舌", "shé", "ลิ้น", "👅"], ["豆", "dòu", "ถั่ว", "🫘"], ["皮", "pí", "หนัง", "🧥"], ["衣", "yī", "เสื้อผ้า", "👕"], ["火", "huǒ", "ไฟ", "🔥"], ["巾", "jīn", "ผ้าเช็ดตัว", "🧣"]]}, {"id": "q2", "t": "ข้อสอบเพิ่มเติม (จับคู่ + เติมคำ)", "e": "📝", "col": "#17a2b8", "s": [], "ch": [], "w": [], "mg": [[["妈妈", "mā ma", "แม่"], ["爷爷", "yé ye", "ปู่"], ["姐姐", "jiě jie", "พี่สาว"], ["姑姑", "gū gu", "อาผู้หญิง"], ["他们", "tā men", "พวกเขา"]], [["星期一", "xīng qī yī", "วันจันทร์"], ["星期五", "xīng qī wǔ", "วันศุกร์"], ["五月", "wǔ yuè", "เดือนพฤษภาคม"], ["九月", "jiǔ yuè", "เดือนกันยายน"], ["一百", "yì bǎi", "หนึ่งร้อย (100)"]], [["牛", "niú", "วัว"], ["狗", "gǒu", "หมา / สุนัข"], ["皮", "pí", "หนังสัตว์"], ["舌", "shé", "ลิ้น"], ["哪儿", "nǎr", "ที่ไหน"]]], "fq": [{"sw": [["我", "wǒ"], ["家", "jiā"], ["有", "yǒu"], ["＿＿＿", ""], ["口", "kǒu"], ["人", "rén"], ["。", ""]], "th": "ฉันมีสมาชิกในครอบครัว 3 คน", "o": [["三", "sān"], ["五", "wǔ"], ["七", "qī"], ["九", "jiǔ"]]}, {"sw": [["我", "wǒ"], ["家", "jiā"], ["的", "de"], ["电话", "diàn huà"], ["号码", "hào mǎ"], ["是", "shì"], ["二〇七六一五", "èr líng qī liù yī wǔ"], ["＿＿＿", ""], ["四", "sì"], ["。", ""]], "th": "เติมเลขที่หายไป (เลข 8)", "o": [["八", "bā"], ["六", "liù"], ["九", "jiǔ"], ["二", "èr"]]}, {"sw": [["今天", "jīn tiān"], ["我", "wǒ"], ["生日", "shēng rì"], ["，", ""], ["明天", "míng tiān"], ["＿＿＿", ""], ["生日", "shēng rì"], ["。", ""]], "th": "วันนี้วันเกิดฉัน พรุ่งนี้วันเกิดเขา", "o": [["他", "tā"], ["我", "wǒ"], ["你", "nǐ"], ["爸爸", "bà ba"]]}, {"sw": [["星期三", "xīng qī sān"], ["之后", "zhī hòu"], ["是", "shì"], ["＿＿＿", ""], ["。", ""]], "th": "วันพุธ ถัดไปคือวันพฤหัสบดี", "o": [["星期四", "xīng qī sì"], ["星期二", "xīng qī èr"], ["星期五", "xīng qī wǔ"], ["星期六", "xīng qī liù"]]}, {"sw": [["二月", "èr yuè"], ["之后", "zhī hòu"], ["是", "shì"], ["＿＿＿", ""], ["。", ""]], "th": "เดือนกุมภาพันธ์ ถัดไปคือเดือนมีนาคม", "o": [["三月", "sān yuè"], ["一月", "yī yuè"], ["四月", "sì yuè"], ["十二月", "shí èr yuè"]]}, {"sw": [["我", "wǒ"], ["＿＿＿", ""], ["家人", "jiā rén"], ["。", ""]], "th": "ฉันรักครอบครัว", "o": [["爱", "ài"], ["也", "yě"], ["住", "zhù"], ["在", "zài"]]}, {"sw": [["我", "wǒ"], ["＿＿＿", ""], ["虎", "hǔ"], ["。", ""]], "th": "ฉันเกิดปีเสือ", "o": [["属", "shǔ"], ["爱", "ài"], ["有", "yǒu"], ["在", "zài"]]}, {"sw": [["花园", "huā yuán"], ["＿＿＿", ""], ["五百七十号", "wǔ bǎi qī shí hào"], ["。", ""]], "th": "ถนนฮวาหยวน เลขที่ 570", "o": [["路", "lù"], ["号", "hào"], ["码", "mǎ"], ["话", "huà"]]}, {"sw": [["今天", "jīn tiān"], ["几月", "jǐ yuè"], ["几", "jǐ"], ["＿＿＿", ""], ["？", ""]], "th": "วันนี้วันที่เท่าไร", "o": [["号", "hào"], ["月", "yuè"], ["年", "nián"], ["天", "tiān"]]}, {"sw": [["今天", "jīn tiān"], ["星期", "xīng qī"], ["＿＿＿", ""], ["？", ""]], "th": "วันนี้วันอะไร", "o": [["几", "jǐ"], ["哪", "nǎ"], ["多", "duō"], ["谁", "shéi"]]}, {"sw": [["你", "nǐ"], ["叫", "jiào"], ["什么", "shén me"], ["＿＿＿", ""], ["？", ""]], "th": "คุณชื่ออะไร", "o": [["名字", "míng zi"], ["生日", "shēng rì"], ["电话", "diàn huà"], ["家人", "jiā rén"]]}, {"sw": [["我", "wǒ"], ["六", "liù"], ["＿＿＿", ""], ["。", ""]], "th": "ฉันอายุ 6 ขวบ", "o": [["岁", "suì"], ["月", "yuè"], ["年", "nián"], ["号", "hào"]]}, {"sw": [["我们", "wǒ men"], ["是", "shì"], ["快乐", "kuài lè"], ["的", "de"], ["＿＿＿", ""], ["。", ""]], "th": "พวกเราเป็นครอบครัวที่มีความสุข", "o": [["一家", "yì jiā"], ["一个", "yí gè"], ["一条", "yì tiáo"], ["一月", "yī yuè"]]}, {"sw": [["我", "wǒ"], ["妹妹", "mèi mei"], ["二〇一一年", "èr líng yī yī nián"], ["十二月", "shí èr yuè"], ["四号", "sì hào"], ["＿＿＿", ""], ["。", ""]], "th": "น้องสาวฉันเกิดวันที่ 4 ธันวาคม ค.ศ. 2011", "o": [["出生", "chū shēng"], ["生日", "shēng rì"], ["快乐", "kuài lè"], ["属", "shǔ"]]}, {"sw": [["十", "shí"], ["、", ""], ["二十", "èr shí"], ["、", ""], ["＿＿＿", ""], ["、", ""], ["一百", "yì bǎi"], ["。", ""]], "th": "เติมลำดับตัวเลข 10, 20, … 100", "o": [["三十", "sān shí"], ["四十", "sì shí"], ["五十", "wǔ shí"], ["九十", "jiǔ shí"]]}]}];
 var PRAISE=['เก่งมาก!','สุดยอดเลย!','ยอดเยี่ยม!','เยี่ยมไปเลย!'],TRY=['เกือบแล้ว! ลองอีกครั้งนะ','ไม่เป็นไร ลองใหม่อีกที','สู้ ๆ นะ ทำได้แน่!'];
 var STK=['🦄','🚀','🌈','🦖','🍭','🐳','🎈','🍉'];
 function rnd(a){return a[Math.floor(Math.random()*a.length)]}
@@ -141,7 +118,7 @@ function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math
 function txt(s){return s.w.map(function(x){return x[0]}).join('')}
 
 /* storage: streak, stars, stickers */
-var D={streak:0,last:'',st:[],done:{},cu:[]};
+var D={streak:0,last:'',st:[],done:{},cu:[],hist:[]};
 try{var j=JSON.parse(localStorage.getItem('hz_kid'));if(j)D=Object.assign(D,j)}catch(e){}
 function save(){try{localStorage.setItem('hz_kid',JSON.stringify(D))}catch(e){}}
 function today(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
@@ -181,7 +158,7 @@ function build(l){
   
   return st;
 }
-var GAMES={pic:1,lw:1,ls:1,st:1,or:1,sp:1,mt:1};
+var GAMES={pic:1,lw:1,ls:1,st:1,or:1,sp:1,mt:1,fb:1,wt:1};
 
 /* state */
 var S={r:'home',li:0,steps:[],i:0,tries:0,wrong:[],fb:null,pk:[],pad:[],pdone:false,sp:{st:'idle',heard:'',n:0},pts:0,games:0,res:null};
@@ -192,16 +169,16 @@ function pw(w,size){return '<div class="pcs" style="font-size:'+size+'px">'+w.ma
 function snd(t,sm){return '<div class="snds"><button class="snd'+(sm?' sm':'')+'" data-a="say" data-v="'+t+'" aria-label="ฟังเสียงปกติ">🔊'+(sm?'':'<small>ปกติ</small>')+'</button><button class="snd'+(sm?' sm':'')+'" data-a="slow" data-v="'+t+'" aria-label="ฟังเสียงช้า">🐢'+(sm?'':'<small>ช้า</small>')+'</button></div>'}
 function snd(){return ''}
 function say(){}
-function build(l){
+function build(l){if(l.mg)return bq(l);
   var W=l.w.map(function(w,i){return {id:'w'+i,z:w[0],p:w[1],th:w[2],e:w[3]}}),
   th=W.map(function(w){return {id:w.id,th:w.th,e:w.e}});
-  var P={k:'pv',ws:W};return [P].concat(shuf(W).map(function(w){var o=shuf(th.filter(function(t){return t.id!==w.id})).slice(0,3).concat(th.filter(function(t){return t.id===w.id}));return {k:'pic',q:'แตะรูปที่ตรงกับคำนี้',w:w,o:shuf(o),a:w.id,ans:w.th}}));
+  var P={k:'pv',ws:W};return [P].concat(shuf(W).map(function(w){var o=shuf(th.filter(function(t){return t.id!==w.id})).slice(0,3).concat(th.filter(function(t){return t.id===w.id}));return {k:'pic',q:'แตะรูปที่ตรงกับคำนี้',w:w,o:shuf(o),a:w.id,ans:w.th}})).concat(shuf(W.filter(function(w){return w.z.length<=2})).slice(0,3).map(function(w){return {k:'wt',w:w}}));
 }
 function vHome(){
   var tot=0,n=streak();AL().forEach(function(l){tot+=D.done[l.id]||0});
   return '<div class="screen"><div class="bar"><span class="pill fire"><b>🔥</b> '+n+' วัน</span><span class="pill">⭐ '+tot+'</span></div>'+
-  '<div class="mas"><div class="panda">🐼</div><div class="bub">'+(n?'วันนี้มาเรียนต่อกันนะ!':'สวัสดี! มาเรียนภาษาจีนกัน')+'</div></div><div class="scroll">'+
-  AL().map(function(l,i){var s=D.done[l.id]||0;return (l.c?'<div style="display:flex;align-items:center;gap:8px">':'')+'<button class="lcard" style="--col:'+l.col+'" data-a="open" data-v="'+i+'"><span class="le">'+l.e+'</span><span class="lt">'+l.t+'</span><span class="ls">'+[1,2,3].map(function(k){return k<=s?'⭐':'☆'}).join('')+'</span></button>'+(l.c?'<button class="x" data-a="edit" data-v="'+(i-LS.length)+'" aria-label="แก้ไข">✏️</button></div>':'')}).join('')+'<button class="btn alt" data-a="bk" style="margin-bottom:10px">💾 สำรอง / ย้ายข้อมูลไปเครื่องอื่น</button><button class="btn alt" data-a="new" style="margin-bottom:6px">➕ เพิ่มบทเรียนของฉัน</button>'+
+  '<div style="text-align:center;font-size:34px;font-weight:700;margin:2px 0">📝 สอบภาษาจีน</div><div class="mas"><div class="panda">🐼</div><div class="bub">'+(n?'วันนี้มาสอบต่อกันนะ!':'สวัสดี! มาสอบภาษาจีนกัน')+'</div></div><div class="scroll">'+
+  AL().map(function(l,i){var s=D.done[l.id]||0;return (l.c?'<div style="display:flex;align-items:center;gap:8px">':'')+'<button class="lcard" style="--col:'+l.col+'" data-a="open" data-v="'+i+'"><span class="le">'+l.e+'</span><span class="lt">'+l.t+'</span><span class="ls">'+[1,2,3].map(function(k){return k<=s?'⭐':'☆'}).join('')+'</span></button>'+(l.c?'<button class="x" data-a="edit" data-v="'+(i-LS.length)+'" aria-label="แก้ไข">✏️</button></div>':'')}).join('')+'<button class="btn" data-a="hs" style="margin-bottom:10px">📊 ประวัติคะแนน (สำหรับผู้ปกครอง)</button><button class="btn alt" data-a="bk" style="margin-bottom:10px">💾 สำรอง / ย้ายข้อมูลไปเครื่องอื่น</button><button class="btn alt" data-a="new" style="margin-bottom:6px">➕ เพิ่มบทเรียนของฉัน</button>'+
   '<p class="h2">สติกเกอร์ของฉัน</p><div class="stk">'+(D.st.length?D.st.map(function(s){return '<span>'+s+'</span>'}).join(''):'<span class="sub">ผ่านด่านเพื่อสะสมสติกเกอร์</span>')+'</div></div></div>';
 }
 function bCard(c){
@@ -262,14 +239,27 @@ function saveEd(){
 function bMt(c){
   var m=S.mt,bd=function(d,s){return 'min-height:84px;margin-bottom:10px;border-color:'+(d?'var(--ok)':s?'var(--pri)':'transparent')},
   L=c.ws.map(function(w){var d=m.done.indexOf(w.id)>=0;return '<button class="opt" style="'+bd(d,m.sel===w.id)+'"'+(d?' disabled':'')+' data-a="ml" data-v="'+w.id+'">'+pw([[w.z,w.p]],34)+'</button>'}).join(''),
-  R=c.r.map(function(id){var w=c.ws.filter(function(x){return x.id===id})[0],d=m.done.indexOf(id)>=0;return '<button class="opt" style="'+bd(d,0)+'"'+(d?' disabled':'')+' data-a="mr" data-v="'+id+'"><span class="e">'+w.e+'</span></button>'}).join('');
-  return '<p class="q">จับคู่คำจีนกับรูป</p><div class="scroll grid" style="align-content:start"><div>'+L+'</div><div>'+R+'</div></div>';
+  R=c.r.map(function(id){var w=c.ws.filter(function(x){return x.id===id})[0],d=m.done.indexOf(id)>=0;return '<button class="opt" style="'+bd(d,0)+'"'+(d?' disabled':'')+' data-a="mr" data-v="'+id+'">'+(c.t?'<span style="font-size:24px">'+w.th+'</span>':'<span class="e">'+w.e+'</span>')+'</button>'}).join('');
+  return '<p class="q">'+(c.t?'จับคู่คำจีนกับความหมาย':'จับคู่คำจีนกับรูป')+'</p><div class="scroll grid" style="align-content:start"><div>'+L+'</div><div>'+R+'</div></div>';
 }
 function vBk(){
   var c=btoa(unescape(encodeURIComponent(JSON.stringify(D))));
   return '<div class="screen"><div class="top"><button class="x" data-a="home" aria-label="ปิด">✕</button><b>สำรอง / ย้ายข้อมูล</b></div><div class="scroll"><p class="sub">กดคัดลอกรหัสนี้ ไปวางในช่องเดียวกันบนอีกเครื่อง แล้วกด “นำเข้า” จะได้บทเรียนที่เพิ่มเอง ดาว สติกเกอร์ และวันที่เรียนต่อเนื่องครบ</p><textarea class="in" id="bk_t" rows="9">'+c+'</textarea><button class="btn" style="margin-top:12px" data-a="cpy">📋 คัดลอกรหัส</button><button class="btn alt" style="margin-top:12px" data-a="imp">⬇️ นำเข้ารหัสที่วางไว้</button></div></div>';
 }
 function bPv(c){return '<p class="q">ดูคำศัพท์ก่อนเริ่มนะ</p><div class="scroll">'+c.ws.map(function(w){return '<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:16px;padding:8px 12px;margin-bottom:8px"><span style="font-size:32px">'+w.e+'</span><div style="flex:1;min-width:0">'+pw([[w.z,w.p]],28)+'</div><div class="th" style="flex:1;text-align:right;font-size:16px">'+w.th+'</div></div>'}).join('')+'</div><button class="btn" style="margin-top:10px" data-a="next">▶️ เริ่มทำข้อสอบ</button>'}
+function bq(l){var R=[];l.mg.forEach(function(g,gi){var ws=g.map(function(x,i){return {id:'m'+gi+'_'+i,z:x[0],p:x[1],th:x[2],e:''}});R.push({k:'mt',t:1,ws:ws,r:shuf(ws.map(function(w){return w.id}))})});
+l.fq.forEach(function(f,i){R.push({k:'fb',q:'เติมคำให้สมบูรณ์',sw:f.sw,th:f.th,o:shuf(f.o.map(function(x,j){return {id:'f'+i+'_'+j,z:x[0],p:x[1]}})),a:'f'+i+'_0',ans:pw([f.o[0]],30)})});return R}
+function bFb(c){return '<p class="q">'+c.q+'</p><div class="center" style="flex:none">'+pw(c.sw,40)+'<div class="th" style="font-size:26px">'+c.th+'</div></div><div class="scroll grid" style="align-content:start">'+c.o.map(function(o){return '<button class="opt"'+(S.wrong.indexOf(o.id)>=0?' disabled':'')+' data-a="opt" data-v="'+o.id+'">'+pw([[o.z,o.p]],40)+'</button>'}).join('')+'</div>'}
+function fd(t){try{return new Date(t).toLocaleString('th-TH',{day:'numeric',month:'short',year:'2-digit',hour:'2-digit',minute:'2-digit'})}catch(e){return ''}}
+function hsTxt(){return 'ผลสอบภาษาจีน\n'+(D.hist||[]).slice(-20).map(function(h){return fd(h.t)+' · '+h.n+' · '+(Math.round(h.p*10)/10)+'/'+h.o+(h.wn?' · เขียน '+h.w+'/'+h.wn:'')}).join('\n')}
+function vHs(){var H=(D.hist||[]).slice().reverse(),n=H.length,sp=0,so=0;H.forEach(function(h){sp+=h.p;so+=h.o});var avg=so?Math.round(sp/so*100):0;
+  return '<div class="screen"><div class="top"><button class="x" data-a="home" aria-label="ปิด">✕</button><b>ประวัติคะแนน</b></div><div class="scroll"><div class="pill" style="font-size:22px;margin-bottom:10px">สอบแล้ว '+n+' ครั้ง · เฉลี่ย '+avg+'%</div>'+
+  (n?H.map(function(h){var pc=h.o?Math.round(h.p/h.o*100):0;return '<div style="background:var(--card);border-radius:16px;padding:10px 14px;margin-bottom:8px;border-left:10px solid '+(pc>=80?'#15c866':pc>=50?'#ff9f1a':'#ff5a5f')+'"><div style="font-size:18px;opacity:.7">'+fd(h.t)+'</div><div style="font-size:22px;font-weight:700">'+h.n+'</div><div style="font-size:24px">'+(Math.round(h.p*10)/10)+' / '+h.o+' ('+pc+'%)'+(h.wn?' · ✍️ เขียน '+h.w+'/'+h.wn:'')+'</div></div>'}).join(''):'<p class="sub">ยังไม่มีประวัติการสอบ</p>')+
+  '<button class="btn" data-a="hcp" style="margin-top:8px">📋 คัดลอกสรุปส่งผู้ปกครอง</button>'+(n?'<button class="btn no" data-a="hdel" style="margin-top:10px">🗑️ ล้างประวัติ</button>':'')+'</div></div>'}
+function bWt(c){var w=c.w,sh=S.wsh;
+  return '<p class="q">✍️ เขียนคำจีนให้ถูกต้อง</p><div class="center" style="flex:none"><div class="th" style="font-size:32px">'+w.th+'</div><div class="py">'+w.p+'</div></div><div class="scroll" style="text-align:center"><div class="pad wr'+(sh?' wrs':'')+'" id="pad"><div class="g">'+w.z+'</div><div class="gd"></div><canvas id="cv"></canvas></div>'+
+  (sh?'<div class="zh sm" style="margin-top:8px">'+w.z+'</div><p class="sub">เทียบกับคำที่เขียน แล้วเลือกผล (ผู้ปกครองช่วยตรวจได้)</p><div style="display:flex;gap:10px"><button class="btn ok" style="flex:1" data-a="wok">✅ เขียนถูก</button><button class="btn no" style="flex:1" data-a="wno">❌ ยังไม่ถูก</button></div>':
+  '<div style="margin-top:10px"><button class="snd sm" data-a="clr" aria-label="ล้างกระดาน">🧹</button></div><button class="btn" style="margin-top:12px" data-a="wshow"'+(S.pad.length?'':' disabled')+'>เขียนเสร็จแล้ว ตรวจคำตอบ</button>')+'</div>'}
 function bOr(c){
   var rem=c.bank.filter(function(w){return S.pk.indexOf(w)<0});
   return '<p class="q">เรียงคำให้เป็นประโยค</p><div class="th" style="text-align:center">'+c.s.th+'</div>'+snd(txt(c.s),1)+'<div class="slot">'+S.pk.map(function(w){return '<button class="chip" data-a="un" data-v="'+w+'">'+cp(c,w)+'</button>'}).join('')+'</div><div class="scroll" style="display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start">'+rem.map(function(w){return '<button class="chip" data-a="or" data-v="'+w+'">'+cp(c,w)+'</button>'}).join('')+'</div><button class="btn" data-a="ock"'+(S.pk.length===c.bank.length?'':' disabled')+'>ตรวจคำตอบ</button>';
@@ -287,7 +277,7 @@ function bSp(c){
   (p.st==='ok'||p.st==='pass'?'<button class="btn ok" data-a="spnext">ต่อไป ›</button>':(p.n>=1?'<button class="btn alt" data-a="spskip">ข้ามข้อนี้</button>':'<div style="height:62px"></div>')));
 }
 function vEx(){
-  var c=cs(),b={cw:bCard,cs:bCard,pic:bChoice,lw:bChoice,ls:bChoice,gr:bGr,st:bSt,or:bOr,sp:bSp,mt:bMt,pv:bPv}[c.k](c);
+  var c=cs(),b={cw:bCard,cs:bCard,pic:bChoice,lw:bChoice,ls:bChoice,gr:bGr,st:bSt,or:bOr,sp:bSp,mt:bMt,pv:bPv,fb:bFb,wt:bWt}[c.k](c);
   var h='<div class="screen"><div class="top"><button class="x" data-a="home" aria-label="ปิด">✕</button><div class="track"><div class="fill" style="width:'+(S.i/S.steps.length*100)+'%"></div></div><span style="font-size:30px">🐼</span></div><div class="body">'+b+'</div></div>';
   if(S.fb)h+='<div class="sheet '+(S.fb.ok?'ok':'no')+'"><div><div class="shin"><span class="sp">🐼</span><div><b>'+(S.fb.ok?rnd(PRAISE):'ไม่เป็นไรนะ')+'</b>'+(S.fb.rev?'<div>คำตอบคือ '+S.fb.ans+'</div>':'')+'</div></div><button class="btn '+(S.fb.ok?'ok':'no')+'" data-a="next">ต่อไป ›</button></div></div>';
   return h;
@@ -297,8 +287,8 @@ function vRes(){
   '<div class="th">ได้สติกเกอร์ใหม่ <span style="font-size:44px;vertical-align:middle">'+r.sticker+'</span></div><div class="pill fire" style="margin-top:12px"><b>🔥</b> เรียนต่อเนื่อง '+streak()+' วัน</div></div><button class="btn" data-a="home">กลับหน้าหลัก</button></div>';
 }
 function render(){
-  $.innerHTML=S.r==='home'?vHome():S.r==='ex'?vEx():S.r==='ed'?vEd():S.r==='bk'?vBk():vRes();
-  if(S.r==='ex'&&cs().k==='st')setupPad();
+  $.innerHTML=S.r==='home'?vHome():S.r==='ex'?vEx():S.r==='ed'?vEd():S.r==='bk'?vBk():S.r==='hs'?vHs():vRes();
+  if(S.r==='ex'&&(cs().k==='st'||cs().k==='wt'))setupPad();
 }
 
 /* tracing pad */
@@ -321,13 +311,13 @@ function bad(id){
   if(S.tries>=2){S.pts+=.25;S.fb={ok:0,rev:1,ans:cs().ans}}else{if(id)S.wrong.push(id);note(rnd(TRY))}
 }
 function go(){
-  stopAll();S.mt={sel:null,done:[],miss:0};S.fb=null;S.tries=0;S.wrong=[];S.pk=[];S.pad=[];S.pdone=false;S.sp={st:'idle',heard:'',n:0};
+  stopAll();S.mt={sel:null,done:[],miss:0};S.fb=null;S.tries=0;S.wrong=[];S.pk=[];S.pad=[];S.pdone=false;S.wsh=false;S.sp={st:'idle',heard:'',n:0};
   if(S.i+1>=S.steps.length)return finish();
   S.i++;render();
 }
 function finish(){
   var l=AL()[S.li],ratio=S.pts/S.games,stars=ratio>=.8?3:ratio>=.5?2:1,sticker=rnd(STK);
-  D.done[l.id]=Math.max(D.done[l.id]||0,stars);D.st.push(sticker);if(D.st.length>30)D.st.shift();touchDay();save();
+  D.done[l.id]=Math.max(D.done[l.id]||0,stars);D.st.push(sticker);if(D.st.length>30)D.st.shift();D.hist=D.hist||[];D.hist.push({t:Date.now(),n:l.t,p:Math.round(S.pts*100)/100,o:S.games,w:S.wk||0,wn:S.steps.filter(function(s){return s.k==='wt'}).length});if(D.hist.length>300)D.hist.shift();touchDay();save();
   S.res={stars:stars,sticker:sticker,pts:S.pts,tot:S.games};S.r='res';render();
 }
 function norm(s){return s.replace(/[^\u4e00-\u9fff]/g,'')}
@@ -345,13 +335,19 @@ function mic(){
 function A(a,v){
   var c=S.steps[S.i];
   switch(a){
-  case 'open':S.mt={sel:null,done:[],miss:0};S.li=+v;S.steps=build(AL()[S.li]);S.games=S.steps.filter(function(s){return GAMES[s.k]}).length;S.i=0;S.pts=0;S.fb=null;S.tries=0;S.wrong=[];S.pk=[];S.pad=[];S.sp={st:'idle',heard:'',n:0};S.r='ex';break;
+  case 'open':S.mt={sel:null,done:[],miss:0};S.wsh=false;S.wk=0;S.li=+v;S.steps=build(AL()[S.li]);S.games=S.steps.filter(function(s){return GAMES[s.k]}).length;S.i=0;S.pts=0;S.fb=null;S.tries=0;S.wrong=[];S.pk=[];S.pad=[];S.sp={st:'idle',heard:'',n:0};S.r='ex';break;
   case 'home':stopAll();S.r='home';break;
   case 'new':S.ed=-1;S.r='ed';break;
   case 'bk':S.r='bk';break;
+  case 'hs':S.r='hs';break;
+  case 'hcp':var hta=document.createElement('textarea');hta.value=hsTxt();document.body.appendChild(hta);hta.select();try{navigator.clipboard.writeText(hta.value)}catch(e){document.execCommand('copy')}hta.remove();note('คัดลอกแล้ว ส่งให้ผู้ปกครองได้เลย');return;
+  case 'hdel':if(!confirm('ล้างประวัติคะแนนทั้งหมดใช่ไหม?'))return;D.hist=[];save();break;
+  case 'wshow':S.wsh=true;break;
+  case 'wok':S.pts+=1;S.wk=(S.wk||0)+1;go();return;
+  case 'wno':S.pts+=.25;go();return;
   case 'cpy':var tb=document.getElementById('bk_t');tb.select();try{navigator.clipboard.writeText(tb.value)}catch(e){document.execCommand('copy')}note('คัดลอกแล้ว');return;
   case 'imp':if(!confirm('ข้อมูลในเครื่องนี้จะถูกแทนที่ ตกลงไหม?'))return;
-   try{var x=JSON.parse(decodeURIComponent(escape(atob(document.getElementById('bk_t').value.replace(/\s/g,'')))));if(!x||!Array.isArray(x.cu))throw 0;D.cu=x.cu;D.done=x.done||{};D.st=x.st||[];D.streak=x.streak||0;D.last=x.last||'';save();S.r='home';break}catch(e){note('รหัสไม่ถูกต้อง ลองคัดลอกมาใหม่ทั้งหมดนะ');return}
+   try{var x=JSON.parse(decodeURIComponent(escape(atob(document.getElementById('bk_t').value.replace(/\s/g,'')))));if(!x||!Array.isArray(x.cu))throw 0;D.cu=x.cu;D.hist=x.hist||[];D.done=x.done||{};D.st=x.st||[];D.streak=x.streak||0;D.last=x.last||'';save();S.r='home';break}catch(e){note('รหัสไม่ถูกต้อง ลองคัดลอกมาใหม่ทั้งหมดนะ');return}
   case 'ml':if(S.fb||S.mt.done.indexOf(v)>=0)return;S.mt.sel=v;break;
   case 'mr':if(S.fb||S.mt.done.indexOf(v)>=0)return;if(!S.mt.sel){note('แตะคำจีนก่อนนะ');return}
    if(v===S.mt.sel){S.mt.done.push(v);S.mt.sel=null;say(c.ws.filter(function(x){return x.id===v})[0].z);if(S.mt.done.length===c.ws.length){S.pts+=S.mt.miss?(S.mt.miss<3?.5:.25):1;S.fb={ok:1}}}else{S.mt.miss++;S.mt.sel=null;note(rnd(TRY))}break;
